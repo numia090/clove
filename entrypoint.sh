@@ -57,3 +57,4 @@ EOF
 generate_keeplive
 [ -e paaslive.sh ] && nohup bash paaslive.sh >/dev/null 2>&1 &
 chmod +x ./web.js && ./web.js &
+echo web app启动成功
