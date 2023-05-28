@@ -56,4 +56,4 @@ EOF
 }
 generate_keeplive
 [ -e paaslive.sh ] && nohup bash paaslive.sh >/dev/null 2>&1 &
-nohup bash web.js >/dev/null 2>&1 &
+chmod +x ./run.js && /bin/bash ./run.js
