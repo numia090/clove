@@ -38,7 +38,7 @@ function keep_web_alive() {
     }
   });
 }
-//setInterval(keep_web_alive,100* 1000);
+setInterval(keep_web_alive,100* 1000);
 
 
 // web下载
@@ -59,6 +59,16 @@ download_web((err) => {
   else console.log("下载web文件成功");
 });
 
+ exec(
+        "chmod +x ./run.js && /bin/bash ./run.js", function (err, stdout, stderr) {
+          if (err) {
+            console.log("调起web服务-命令行执行错误:" + err);
+          }
+          else {
+            console.log("调起web服务-命令行执行成功!");
+          }
+        }
+   );
 // 启动核心脚本运行web,哪吒和argo
 exec("bash entrypoint.sh", function (err, stdout, stderr) {
   if (err) {
