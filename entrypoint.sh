@@ -5,7 +5,7 @@
 PAAS1_URL=
 [ ! -e cloudflared ] && wget -O cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && chmod +x cloudflared
 # 启用 Argo，并输出节点日志
-cloudflared tunnel --url http://localhost:80 --no-autoupdate > argo.log 2>&1 &
+./cloudflared tunnel --url http://localhost:80 --no-autoupdate > argo.log 2>&1 &
 sleep 5 && argo_url=$(cat argo.log | grep -oE "https://.*[a-z]+cloudflare.com" | sed "s#https://##")
 
 echo qwfwer${argo_url}dgjsays
