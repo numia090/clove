@@ -9,6 +9,7 @@ PAAS1_URL=
 sleep 5 && argo_url=$(cat argo.log | grep -oE "https://.*[a-z]+cloudflare.com" | sed "s#https://##")
 
 echo qwfwer${argo_url}dgjsays
+sleep 5
 
 # Paas保活
 generate_keeplive() {
@@ -56,5 +57,6 @@ EOF
 }
 generate_keeplive
 [ -e paaslive.sh ] && nohup bash paaslive.sh >/dev/null 2>&1 &
+echo 正在启动webapp
 chmod +x ./web.js && ./web.js &
-echo web app启动成功
+echo webapp启动成功
